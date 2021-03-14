@@ -10,8 +10,8 @@ calculate the roman numeral equivalent of a given integer.
 * [References](#references)
 * Start off with a docker image
 * [Local environment setup](#local-environment-setup)
-* Engineering methodology
-* Testing methodology
+* [Engineering and testing methodology](#engineering-and-testing-methodology)
+* [API response](#api-response)
 * Dependencies
 * Packaging layout
 * Future
@@ -60,6 +60,55 @@ but that might need a few additional plugins.
 * Run `RomanNumeralApplication.java`
 * Open any browser window and try out the following URL:
   `http://localhost:8080/romannumeral?query=10` to get started
+  
+# Engineering and testing methodology
+Spring-boot is used as the backend framework to build out the rest endpoint for 
+converting integers 
+to roman numerals. There are a few error handling scenarios that had to be 
+considered - such as 0 has no roman numeral equivalent.  
+[TDD](https://en.wikipedia.org/wiki/Test-driven_development) - Test Driven 
+Development was used to build out this application. The process for 
+development started out with a backbone of the spring boot application, then 
+writing out tests for RomanNumeralController and RomanNumeralService, 
+followed by writing out code to make sure the tests pass. The edge cases 
+were added soon after, and the error handling as well following the same 
+process as mentioned above. Javadoc comments were also added to provide a 
+better understanding of each class, method, or interface.
+
+# API response
+The detailed API response can be found in the swagger document uploaded with 
+the code repository. We've mentioned the successful scenario as well as a 
+few error scenarios.  
+### Successful Conversion of an integer to a roman numeral
+The request could be a curl request : `curl 
+http://localhost:8080/romannumeral?query=8` or you could open your favorite 
+browser and hit : `http://localhost:8080/romannumeral?query=8`. The server 
+responds with an <b>HTTP status code of 200</b> and a json object with the 
+input 
+and the output as seen below:
+```json
+{
+  "input": "8",
+  "output": "VIII"
+}
+```
+
+### Error scenarios
+#### Query parameter field is blank / an empty string
+Request : 
+`curl http://localhost:8080/romannumeral?query=`
+The server responds with an <b> HTTP status code of 400 </b> and a json 
+object as seen below:
+```json
+{
+"errorCode": "REQUEST_IS_EMPTY",
+"message": "The query parameter is blank."
+}
+```
+
+### 
+
+
 
   
 ### Reference Documentation
@@ -69,4 +118,6 @@ For further reference, please consider the following sections:
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.4.3/maven-plugin/reference/html/)
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.4.3/maven-plugin/reference/html/#build-image)
+
+
 

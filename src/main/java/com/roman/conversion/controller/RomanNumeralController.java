@@ -12,9 +12,8 @@ import static com.roman.conversion.utility.RomanNumeralUtility.*;
 
 /**
  * This class is the Rest Controller for roman numeral conversion.
- * Currently, RomanNumeralConverter consists of one endpoint : /romannumeral.
+ * Currently, RomanNumeralController consists of one endpoint : /romannumeral.
  * @author swetabarman
- * @
  */
 
 @RestController
