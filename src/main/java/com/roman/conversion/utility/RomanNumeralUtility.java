@@ -42,10 +42,7 @@ public final class RomanNumeralUtility {
      * @return boolean
      */
     public static boolean isDoubleValue(String input) {
-        if (input == null) {
-            return false;
-        }
-        if (isIntegerValue(input)) {
+        if (input == null || isIntegerValue(input)) {
             return false;
         }
         try {
@@ -62,8 +59,7 @@ public final class RomanNumeralUtility {
      * @return
      */
     public static boolean isIntegerValue(String input) {
-        if (input == null)
-        {
+        if (input == null) {
             return false;
         }
         try {
