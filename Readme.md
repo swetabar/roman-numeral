@@ -12,7 +12,7 @@ calculate the roman numeral equivalent of a given integer.
 * [Local environment setup](#local-environment-setup)
 * [Engineering and testing methodology](#engineering-and-testing-methodology)
 * [API response](#api-response)
-* Dependencies
+* [Dependencies](#dependencies)
 * Packaging layout
 * Future
 
@@ -106,9 +106,61 @@ object as seen below:
 }
 ```
 
-### 
+### The query parameter is assigned a value of 0
+Request :
+`curl http://localhost:8080/romannumeral?query=0`
+The server responds with an <b> HTTP status code of 422 </b> and a json
+object as seen below:
+```json
+{
+"errorCode": "REQUEST_LIMIT_ERROR",
+"message": "The number entered was 0. There is no roman numeral for 0."
+}
+```
 
+### The query parameter is assigned a value of 9.8
+Request : `curl http://localhost:8080/romannumeral?query=9.8`  
+The server responds with an <b> HTTP status code of 400 </b> and a json
+object as seen below:
+```json
+{
+"errorCode": "INVALID_INPUT",
+"message": "You entered 9.8, which is a double value. Please enter an integer value in the range of 1 - 255."
+}
+```
 
+### The query parameter is assigned a value of 257
+Request : `curl http://localhost:8080/romannumeral?query=257`
+The server responds with an <b> HTTP status code of 422 </b> and a json
+object as seen below:
+```json
+{
+"errorCode": "REQUEST_LIMIT_ERROR",
+"message": "The number should lie within the limit of 1 - 255."
+}
+```
+
+### Make a request to an unknown path
+Request : `curl http://localhost:8080/roman`
+The server responds with an <b> HTTP status code of 404 </b> and a json
+object as seen below:
+```json
+{
+"errorCode": "404 NOT_FOUND",
+"message": "Not Found"
+}
+```
+
+# Dependencies
+The dependencies that have been used for this application include :
+* [Lombok](https://github.com/rzwitserloot/lombok)
+* [Spring-boot maven plugin](https://github.com/spring-projects/spring-boot)
+* [Spring-boot starter](https://github.com/spring-projects/spring-boot)
+* [Spring-boot starter test](https://github.com/spring-projects/spring-boot)
+* [Spring-boot starter web](https://github.com/spring-projects/spring-boot)
+* [junit4](https://github.com/junit-team/junit4)
+
+The dependency graph can be found on github [here](https://github.com/swetabar/roman-numeral/network/dependencies).
 
   
 ### Reference Documentation
