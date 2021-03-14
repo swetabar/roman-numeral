@@ -6,8 +6,8 @@ calculate the roman numeral equivalent of a given integer.
 
 ## Table of Contents  
 
-* Purpose
-* References
+* [Purpose](purpose)
+* [References](references)
 * Start off with a docker image
 * Dependencies
 * Local environment setup
@@ -16,7 +16,16 @@ calculate the roman numeral equivalent of a given integer.
 * Packaging layout
 * Future
 
+### Purpose
 
+Build an HTTP endpoint that provides the roman numeral equivalent of 
+an integer value in the range 1-255. The HTTP endpoint accepts a URI in the 
+format `http://localhost:8080/romannumeral?query={number}` where `number` is 
+an integer in the range 1-255.  
+For example, `http://localhost:8080/romannumeral?query=10` would return the 
+roman numeral equivalent of 10, which is `X`.
+
+### References
 
 
 ### Reference Documentation
