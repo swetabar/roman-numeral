@@ -84,7 +84,7 @@ public class ExceptionHelper {
      */
     @ExceptionHandler(IncorrectLimitException.class)
     public ResponseEntity<Error> handleLimitException(IncorrectLimitException ex) {
-        Error error = new Error("REQUEST_LIMIT_ERROR",
+        Error error = new Error(ERROR_CODE_REQUEST_LIMIT_ERROR,
                 ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.UNPROCESSABLE_ENTITY);
     }

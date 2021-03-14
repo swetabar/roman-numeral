@@ -9,7 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- *
+ * Unit tests for {@link RomanNumeralService}
+ * @author swetabarman
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

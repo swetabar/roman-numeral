@@ -10,13 +10,17 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.text.MessageFormat;
+
+import static com.roman.conversion.utility.RomanNumeralUtility.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 /**
- *
+ * Unit tests for {@link ExceptionHelper}
+ * @author swetabarman
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest(RomanNumeralController.class)
@@ -30,14 +34,14 @@ public class ExceptionHelperTests {
 
     @Test
     public void shouldReturnDoubleValueErrorMessage() throws Exception {
-        this.mockMvc.perform(get("/romannumeral").param("query", "9.5"))
+        String input = "9.5";
+        this.mockMvc.perform(get("/romannumeral").param(QUERY, input))
                 .andDo(print()).andExpect(status().isBadRequest())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.errorCode").value("INVALID_INPUT"))
-                .andExpect(jsonPath("$.message").value("You entered 9.5, " +
-                        "which is a " +
-                        "double value. Please enter an integer " +
-                                "value in the range of 1 - 255."));
+                .andExpect(jsonPath("$.errorCode").value(ERROR_CODE_INVALID_INPUT))
+                .andExpect(jsonPath("$.message").value(MessageFormat.format(EXCEPTION_MESSAGE_DOUBLE_INPUT, input) + BLANK +
+                        MessageFormat.format(VALID_MESSAGE, MIN_LIMIT
+                                , MAX_LIMIT)));
     }
 
     @Test
@@ -45,19 +49,18 @@ public class ExceptionHelperTests {
         this.mockMvc.perform(get("/romannumeral"))
                 .andDo(print()).andExpect(status().isBadRequest())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.errorCode").value("REQUEST_IS_EMPTY"))
-                .andExpect(jsonPath("$.message").value("query parameter is " +
-                        "blank."));
+                .andExpect(jsonPath("$.errorCode").value(ERROR_CODE_EMPTY_REQUEST))
+                .andExpect(jsonPath("$.message").value(MessageFormat.format(EXCEPTION_MESSAGE_EMPTY_REQUEST, QUERY)));
     }
 
     @Test
     public void shouldReturnIncorrectLimitErrorMessage() throws Exception {
-        this.mockMvc.perform(get("/romannumeral").param("query", "-90"))
-                .andDo(print()).andExpect(status().isBadRequest())
+        this.mockMvc.perform(get("/romannumeral").param(QUERY, "-90"))
+                .andDo(print()).andExpect(status().isUnprocessableEntity())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.errorCode").value("REQUEST_LIMIT_ERROR"))
-                .andExpect(jsonPath("$.message").value("The number should " +
-                        "lie within the limit of 1 - 255."));
+                .andExpect(jsonPath("$.errorCode").value(ERROR_CODE_REQUEST_LIMIT_ERROR))
+                .andExpect(jsonPath("$.message").value(MessageFormat.format(EXCEPTION_MESSAGE_OUTSIDE_LIMIT,
+                        MIN_LIMIT, MAX_LIMIT)));
     }
 
 }

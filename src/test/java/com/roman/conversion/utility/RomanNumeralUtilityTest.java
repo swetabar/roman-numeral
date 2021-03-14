@@ -8,7 +8,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Unit tests for {@link RomanNumeralUtility}
+ * @author swetabarman
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

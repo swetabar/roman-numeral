@@ -12,6 +12,7 @@ public final class RomanNumeralUtility {
     public static final int MAX_LIMIT = 255;
     public static final String BLANK = " ";
     public static final String BACKSLASH_QUOTE = "\\\"";
+    public static final String QUERY = "query";
     public static final String EXCEPTION_MESSAGE_FOR_ZERO = "The number " +
             "entered was 0. There is no roman numeral for 0.";
     public static final String EXCEPTION_MESSAGE_OUTSIDE_LIMIT = "The number " +
@@ -21,11 +22,13 @@ public final class RomanNumeralUtility {
             "invalid input.";
     public static final String VALID_MESSAGE = "Please enter an integer " +
             "value" +
-            " in the range of {0} - {1}";
+            " in the range of {0} - {1}.";
     public static final String EXCEPTION_MESSAGE_DOUBLE_INPUT = "You entered " +
             "{0}, which is a double value.";
     public static final String ERROR_CODE_INVALID_INPUT = "INVALID_INPUT";
     public static final String ERROR_CODE_EMPTY_REQUEST = "REQUEST_IS_EMPTY";
+    public static final String ERROR_CODE_REQUEST_LIMIT_ERROR =
+            "REQUEST_LIMIT_ERROR";
     public static final String EXCEPTION_MESSAGE_EMPTY_REQUEST = "The {0} " +
             "parameter is blank.";
 

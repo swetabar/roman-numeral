@@ -9,11 +9,19 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.text.MessageFormat;
+
+import static com.roman.conversion.utility.RomanNumeralUtility.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+/**
+ * Unit tests for {@link RomanNumeralController}
+ * @author swetabarman
+ */
 @RunWith(SpringRunner.class)
 @WebMvcTest(RomanNumeralController.class)
 public class RomanNumeralControllerTests {
@@ -29,7 +37,7 @@ public class RomanNumeralControllerTests {
     public void shouldReturnExpectedRomanNumeral() throws Exception {
         when(romanNumeralService.convertDecimalToRomanNumeral(1)).thenReturn(
                 new RomanNumeral("1", "I"));
-        this.mockMvc.perform(get("/romannumeral").param("query", "1"))
+        this.mockMvc.perform(get("/romannumeral").param(QUERY, "1"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$.input").value("1"))
@@ -38,30 +46,31 @@ public class RomanNumeralControllerTests {
 
     @Test
     public void shouldThrowIncorrectLimitException() throws Exception {
-        this.mockMvc.perform(get("/romannumeral").param("query", "0"))
-                .andDo(print()).andExpect(status().isBadRequest())
+        this.mockMvc.perform(get("/romannumeral").param(QUERY, "0"))
+                .andDo(print()).andExpect(status().isUnprocessableEntity())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.errorCode").value("REQUEST_LIMIT_ERROR"))
-                .andExpect(jsonPath("$.message").value("The number entered " +
-                        "was 0. There is no roman numeral for number 0"));
+                .andExpect(jsonPath("$.errorCode").value(ERROR_CODE_REQUEST_LIMIT_ERROR))
+                .andExpect(jsonPath("$.message").value(EXCEPTION_MESSAGE_FOR_ZERO));
     }
 
     @Test
     public void shouldThrowIncorrectLimitExceptionForValueGreaterThanMax() throws Exception {
-        this.mockMvc.perform(get("/romannumeral").param("query", "256"))
-                .andDo(print()).andExpect(status().isBadRequest())
+        this.mockMvc.perform(get("/romannumeral").param(QUERY, "256"))
+                .andDo(print()).andExpect(status().isUnprocessableEntity())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.errorCode").value("REQUEST_LIMIT_ERROR"))
-                .andExpect(jsonPath("$.message").value("The number should lie within the limit of 1 - 255."));
+                .andExpect(jsonPath("$.errorCode").value(ERROR_CODE_REQUEST_LIMIT_ERROR))
+                .andExpect(jsonPath("$.message").value(MessageFormat.format(EXCEPTION_MESSAGE_OUTSIDE_LIMIT,
+                        MIN_LIMIT, MAX_LIMIT)));
     }
 
     @Test
     public void shouldThrowIncorrectLimitExceptionForValueLessThanMin() throws Exception {
-        this.mockMvc.perform(get("/romannumeral").param("query", "-20"))
-                .andDo(print()).andExpect(status().isBadRequest())
+        this.mockMvc.perform(get("/romannumeral").param(QUERY, "-20"))
+                .andDo(print()).andExpect(status().isUnprocessableEntity())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.errorCode").value("REQUEST_LIMIT_ERROR"))
-                .andExpect(jsonPath("$.message").value("The number should lie within the limit of 1 - 255."));
+                .andExpect(jsonPath("$.errorCode").value(ERROR_CODE_REQUEST_LIMIT_ERROR))
+                .andExpect(jsonPath("$.message").value(MessageFormat.format(EXCEPTION_MESSAGE_OUTSIDE_LIMIT,
+                        MIN_LIMIT, MAX_LIMIT)));
     }
 
 }
