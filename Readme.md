@@ -61,7 +61,7 @@ but that might need a few additional plugins.
 * Open any browser window and try out the following URL:
   `http://localhost:8080/romannumeral?query=10` to get started
   
-# Engineering and testing methodology
+## Engineering and testing methodology
 Spring-boot is used as the backend framework to build out the rest endpoint for 
 converting integers 
 to roman numerals. There are a few error handling scenarios that had to be 
@@ -75,7 +75,7 @@ were added soon after, and the error handling as well following the same
 process as mentioned above. Javadoc comments were also added to provide a 
 better understanding of each class, method, or interface.
 
-# API response
+## API response
 The detailed API response can be found in the swagger document uploaded with 
 the code repository. We've mentioned the successful scenario as well as a 
 few error scenarios.  
@@ -151,7 +151,7 @@ object as seen below:
 }
 ```
 
-# Dependencies
+## Dependencies
 The dependencies that have been used for this application include :
 * [Lombok](https://github.com/rzwitserloot/lombok)
 * [Spring-boot maven plugin](https://github.com/spring-projects/spring-boot)
@@ -162,7 +162,7 @@ The dependencies that have been used for this application include :
 
 The dependency graph can be found on github [here](https://github.com/swetabar/roman-numeral/network/dependencies).
 
-# Packaging layout
+## Packaging layout
 The root of the project contains the `src` folder which has the source code 
 for the application as well as the unit tests.
 Within `src/main/java/com/roman/conversion`, the following folders were 
@@ -181,7 +181,7 @@ included:
 Within `src/test/java/com/roman/conversion/`, unit test files for each of the 
 above classes have been included.
 
-# Future
+## Future
 Next steps include :
 * Expand the limit for converting an integer to a roman numeral beyond 255
 * Adding integration tests
