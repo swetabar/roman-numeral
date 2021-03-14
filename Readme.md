@@ -6,8 +6,8 @@ calculate the roman numeral equivalent of a given integer.
 
 ## Table of Contents  
 
-* [Purpose](purpose)
-* [References](references)
+* [Purpose](#purpose)
+* [References](#references)
 * Start off with a docker image
 * Dependencies
 * Local environment setup
