@@ -13,8 +13,8 @@ calculate the roman numeral equivalent of a given integer.
 * [Engineering and testing methodology](#engineering-and-testing-methodology)
 * [API response](#api-response)
 * [Dependencies](#dependencies)
-* Packaging layout
-* Future
+* [Packaging layout](#packaging-layout)
+* [Future](#future)
 
 ## Purpose
 
@@ -162,14 +162,29 @@ The dependencies that have been used for this application include :
 
 The dependency graph can be found on github [here](https://github.com/swetabar/roman-numeral/network/dependencies).
 
+# Packaging layout
+The root of the project contains the `src` folder which has the source code 
+for the application as well as the unit tests.
+Within `src/main/java/com/roman/conversion`, the following folders were 
+included:
+* controller - Consists of `RomanNumeralController.java` with the 
+  `/romannumeral` endpoint and `HandleErrorController.java` with the 
+  `/error` endpoint
+* errorhandling - Consists of `ExceptionHandler.java` to handle exceptions 
+  and `IncorrectLimitException.java` 
+* model - Consists of `Error.java` and `RomanNumeral.java` model classes
+* service - Consists of `IRomanNumeralService.java` interface and 
+  `RomanNumeralService.java`
+* utility - Consists of `RomanNumeralUtility.java` which includes constants 
+  and utility methods
   
-### Reference Documentation
+Within `src/test/java/com/roman/conversion/`, unit test files for each of the 
+above classes have been included.
 
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.4.3/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.4.3/maven-plugin/reference/html/#build-image)
-
-
-
+# Future
+Next steps include :
+* Expand the limit for converting an integer to a roman numeral beyond 255
+* Adding integration tests
+* Deploying the application to the cloud
+* Building out a frontend for it
+* Adding scaling, if required
