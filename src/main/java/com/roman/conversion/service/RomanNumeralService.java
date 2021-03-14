@@ -12,14 +12,14 @@ public class RomanNumeralService implements IRomanNumeralService {
                 "V","IV",
                 "I"};
         int num = number;
-        StringBuilder sb = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
 
-        for(int i=0;i<values.length;i++) {
+        for(int i=0; i<values.length; i++) {
             while(num >= values[i]) {
                 num -= values[i];
-                sb.append(romanNumerals[i]);
+                builder.append(romanNumerals[i]);
             }
         }
-        return new RomanNumeral(String.valueOf(number), sb.toString());
+        return new RomanNumeral(String.valueOf(number), builder.toString());
     }
 }
