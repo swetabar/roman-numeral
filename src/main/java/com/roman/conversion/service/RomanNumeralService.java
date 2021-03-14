@@ -2,9 +2,22 @@ package com.roman.conversion.service;
 import com.roman.conversion.model.RomanNumeral;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class implements methods that convert an integer to a roman numeral.
+ * @author swetabarman
+ */
 @Component
 public class RomanNumeralService implements IRomanNumeralService {
 
+    /**
+     * This method accepts an integer number and returns a RomalNumeral
+     * object with two fields - input and output. For an input 10, the output
+     * would be:
+     * {@code {"input" : "10",
+     * "output" : "X"}}
+     * @param number
+     * @return RomanNumeral
+     */
     @Override
     public RomanNumeral convertDecimalToRomanNumeral(final int number) {
         int[] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};

@@ -43,12 +43,13 @@ public class ExceptionHelper {
         Error error = new Error();
         error.setErrorCode(ERROR_CODE_INVALID_INPUT);
         //queryValue stores the input string assigned to the query parameter
-        String queryValue = ex.getLocalizedMessage().split("\\\"")[1];
+        String queryValue = ex.getLocalizedMessage().split(BACKSLASH_QUOTE)[1];
         error.setMessage(MessageFormat.format(EXCEPTION_MESSAGE_INVALID_INPUT
-                , queryValue) + MessageFormat.format(VALID_MESSAGE, MIN_LIMIT
+                , queryValue) + BLANK + MessageFormat.format(VALID_MESSAGE,
+                MIN_LIMIT
                 , MAX_LIMIT));
         if (RomanNumeralUtility.isDoubleValue(queryValue)) {
-            error.setMessage(MessageFormat.format(EXCEPTION_MESSAGE_DOUBLE_INPUT, queryValue) +
+            error.setMessage(MessageFormat.format(EXCEPTION_MESSAGE_DOUBLE_INPUT, queryValue) + BLANK +
                     MessageFormat.format(VALID_MESSAGE, MIN_LIMIT
                             , MAX_LIMIT));
         }
@@ -74,7 +75,8 @@ public class ExceptionHelper {
     /**
      * This method handles exceptions when the value of the request parameter -
      * `query` is below the {@link RomanNumeralUtility#MIN_LIMIT} or is above
-     * the {@link RomanNumeralUtility#MAX_LIMIT}.
+     * the {@link RomanNumeralUtility#MAX_LIMIT}. It is also raised when the
+     * input number entered in the query parameter is 0.
      *
      * @param ex
      * @return ResponseEntity
