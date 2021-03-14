@@ -1,4 +1,23 @@
-# Getting Started
+# Conversion to roman numerals
+
+Conversion to roman numerals is a spring-boot application which exposes an 
+endpoint to 
+calculate the roman numeral equivalent of a given integer.
+
+## Table of Contents  
+
+* Purpose
+* References
+* Start off with a docker image
+* Dependencies
+* Local environment setup
+* Engineering methodology
+* Testing methodology
+* Packaging layout
+* Future
+
+
+
 
 ### Reference Documentation
 
