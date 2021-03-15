@@ -11,5 +11,4 @@ public class RomanNumeralApplication {
     public static void main(String[] args) {
         SpringApplication.run(RomanNumeralApplication.class, args);
     }
-
 }
