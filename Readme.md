@@ -67,7 +67,7 @@ but that might need a few additional plugins.
 
 ### Run the unit test suite from IntelliJ IDEA Ultimate
 
-* Right click on `com.roman.conversion` package
+* Right click on the `com.roman.conversion` package
 * Click on `Run Tests in com.roman.conversion`
 * You can see the unit tests running on the IntelliJ terminal
   
@@ -193,7 +193,7 @@ included:
 Within `src/test/java/com/roman/conversion/`, unit test files for each of the 
 above classes have been included.
 
-## Next Steps
+## Future
 Next steps include :
 * Expand the limit for converting an integer to a roman numeral beyond 255
 * Adding integration tests
