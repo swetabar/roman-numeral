@@ -85,8 +85,7 @@ process as mentioned above. Javadoc comments were also added to provide a
 better understanding of each class, method, or interface.
 
 ## API response
-The detailed API response can be found in the swagger document uploaded with 
-the code repository. I've mentioned the successful scenario as well as a 
+The detailed API response can be found in the swagger document. I've mentioned the successful scenario as well as a 
 few error scenarios.  
 The <b>swagger</b> documentation can be accessed at : 
 `http://localhost:8080/swagger-ui.html#/roman-numeral-controller`.
