@@ -169,6 +169,8 @@ The dependencies that have been used for this application include :
 * [Spring-boot starter test](https://github.com/spring-projects/spring-boot)
 * [Spring-boot starter web](https://github.com/spring-projects/spring-boot)
 * [junit4](https://github.com/junit-team/junit4)
+* [maven-surefire-plugin](https://github.com/apache/maven-surefire)
+
 
 The dependency graph can be found on github [here](https://github.com/swetabar/roman-numeral/network/dependencies).
 
