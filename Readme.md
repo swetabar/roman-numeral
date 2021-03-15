@@ -179,7 +179,7 @@ included:
 * model - Consists of `Error.java` and `RomanNumeral.java` model classes
 * service - Consists of `IRomanNumeralService.java` interface and 
   `RomanNumeralService.java`
-* utility - Consists of `RomanNumeralUtility.java` which includes constants 
+* utils - Consists of `RomanNumeralUtils.java` which includes constants 
   and utility methods
   
 Within `src/test/java/com/roman/conversion/`, unit test files for each of the 
