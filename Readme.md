@@ -8,7 +8,6 @@ calculate the roman numeral equivalent of a given integer.
 
 * [Purpose](#purpose)
 * [References](#references)
-* Start off with a docker image
 * [Local environment setup](#local-environment-setup)
 * [Engineering and testing methodology](#engineering-and-testing-methodology)
 * [API response](#api-response)
@@ -89,6 +88,10 @@ better understanding of each class, method, or interface.
 The detailed API response can be found in the swagger document uploaded with 
 the code repository. We've mentioned the successful scenario as well as a 
 few error scenarios.  
+The <b>swagger</b> documentation can be accessed at : 
+`http://localhost:8080/swagger-ui.html#/roman-numeral-controller`.
+The JSON version of the document can be accessed at : `http://localhost:8080/v2/api-docs`
+
 ### Successful Conversion of an integer to a roman numeral
 The request could be a curl request : `curl 
 http://localhost:8080/romannumeral?query=8` or you could open your favorite 
@@ -170,6 +173,7 @@ The dependencies that have been used for this application include :
 * [Spring-boot starter web](https://github.com/spring-projects/spring-boot)
 * [junit4](https://github.com/junit-team/junit4)
 * [maven-surefire-plugin](https://github.com/apache/maven-surefire)
+* [springfox-swagger2](https://mvnrepository.com/artifact/io.springfox/springfox-swagger2)
 
 
 The dependency graph can be found on github [here](https://github.com/swetabar/roman-numeral/network/dependencies).
@@ -197,6 +201,7 @@ above classes have been included.
 Next steps include :
 * Expand the limit for converting an integer to a roman numeral beyond 255
 * Adding integration tests
+* Create a docker image
 * Deploying the application to the cloud
 * Building out a frontend for it
 * Adding scaling, if required
