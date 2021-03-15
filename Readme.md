@@ -61,6 +61,16 @@ but that might need a few additional plugins.
 * Open any browser window and try out the following URL:
   `http://localhost:8080/romannumeral?query=10` to get started
   
+### Run the unit test suite on your machine
+
+* From the root folder, execute `mvn clean test`
+
+### Run the unit test suite from IntelliJ IDEA Ultimate
+
+* Right click on `com.roman.conversion` package
+* Click on `Run Tests in com.roman.conversion`
+* You can see the unit tests running on the IntelliJ terminal
+  
 ## Engineering and testing methodology
 Spring-boot is used as the backend framework to build out the rest endpoint for 
 converting integers 
