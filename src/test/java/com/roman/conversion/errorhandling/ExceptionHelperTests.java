@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.text.MessageFormat;
 
-import static com.roman.conversion.utility.RomanNumeralUtility.*;
+import static com.roman.conversion.utils.RomanNumeralUtils.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;

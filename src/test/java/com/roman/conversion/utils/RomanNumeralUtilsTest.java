@@ -1,4 +1,4 @@
-package com.roman.conversion.utility;
+package com.roman.conversion.utils;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,35 +8,35 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for {@link RomanNumeralUtility}
+ * Unit tests for {@link RomanNumeralUtils}
  * @author swetabarman
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RomanNumeralUtilityTest {
+public class RomanNumeralUtilsTest {
 
     @Test
     public void testIfNumberIsDouble() {
-        assertTrue(RomanNumeralUtility.isDoubleValue("9.5"));
+        assertTrue(RomanNumeralUtils.isDoubleValue("9.5"));
     }
 
     @Test
     public void testIfNumberIsNotDouble() {
-        assertFalse(RomanNumeralUtility.isDoubleValue("9"));
+        assertFalse(RomanNumeralUtils.isDoubleValue("9"));
     }
 
     @Test
     public void testWithNullAsNumber() {
-        assertFalse(RomanNumeralUtility.isDoubleValue(null));
+        assertFalse(RomanNumeralUtils.isDoubleValue(null));
     }
 
     @Test
     public void testWithStringValue() {
-        assertFalse(RomanNumeralUtility.isDoubleValue("Hello"));
+        assertFalse(RomanNumeralUtils.isDoubleValue("Hello"));
     }
 
     @Test
     public void testIsIntegerWithNullValue() {
-        assertFalse(RomanNumeralUtility.isIntegerValue(null));
+        assertFalse(RomanNumeralUtils.isIntegerValue(null));
     }
 }

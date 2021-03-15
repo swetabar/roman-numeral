@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.text.MessageFormat;
 
-import static com.roman.conversion.utility.RomanNumeralUtility.*;
+import static com.roman.conversion.utils.RomanNumeralUtils.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -72,5 +72,4 @@ public class RomanNumeralControllerTests {
                 .andExpect(jsonPath("$.message").value(MessageFormat.format(EXCEPTION_MESSAGE_OUTSIDE_LIMIT,
                         MIN_LIMIT, MAX_LIMIT)));
     }
-
 }

@@ -1,11 +1,11 @@
-package com.roman.conversion.utility;
+package com.roman.conversion.utils;
 
 /**
  * This is a utility class with methods and constants to be used across the
  * project.
  * @author swetabarman
  */
-public final class RomanNumeralUtility {
+public final class RomanNumeralUtils {
 
     public static final int ZERO = 0;
     public static final int MIN_LIMIT = 1;
@@ -33,7 +33,7 @@ public final class RomanNumeralUtility {
             "parameter is blank.";
 
 
-    private RomanNumeralUtility() {}
+    private RomanNumeralUtils() {}
 
     /**
      * This utility method returns if input is a double value. It first checks
@@ -54,7 +54,7 @@ public final class RomanNumeralUtility {
     }
 
     /**
-     * This utlity method checks if input is an integer value.
+     * This utility method checks if input is an integer value.
      * @param input
      * @return
      */

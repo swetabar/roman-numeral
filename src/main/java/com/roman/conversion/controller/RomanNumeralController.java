@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.text.MessageFormat;
-import static com.roman.conversion.utility.RomanNumeralUtility.*;
+import static com.roman.conversion.utils.RomanNumeralUtils.*;
 
 /**
  * This class is the Rest Controller for roman numeral conversion.

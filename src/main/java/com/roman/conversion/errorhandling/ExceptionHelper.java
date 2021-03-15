@@ -1,7 +1,7 @@
 package com.roman.conversion.errorhandling;
 
 import com.roman.conversion.model.Error;
-import com.roman.conversion.utility.RomanNumeralUtility;
+import com.roman.conversion.utils.RomanNumeralUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.text.MessageFormat;
 
-import static com.roman.conversion.utility.RomanNumeralUtility.*;
+import static com.roman.conversion.utils.RomanNumeralUtils.*;
 
 /**
  * This class serves as the error handler for the application.
@@ -48,7 +48,7 @@ public class ExceptionHelper {
                 , queryValue) + BLANK + MessageFormat.format(VALID_MESSAGE,
                 MIN_LIMIT
                 , MAX_LIMIT));
-        if (RomanNumeralUtility.isDoubleValue(queryValue)) {
+        if (RomanNumeralUtils.isDoubleValue(queryValue)) {
             error.setMessage(MessageFormat.format(EXCEPTION_MESSAGE_DOUBLE_INPUT, queryValue) + BLANK +
                     MessageFormat.format(VALID_MESSAGE, MIN_LIMIT
                             , MAX_LIMIT));
@@ -74,8 +74,8 @@ public class ExceptionHelper {
 
     /**
      * This method handles exceptions when the value of the request parameter -
-     * `query` is below the {@link RomanNumeralUtility#MIN_LIMIT} or is above
-     * the {@link RomanNumeralUtility#MAX_LIMIT}. It is also raised when the
+     * `query` is below the {@link RomanNumeralUtils#MIN_LIMIT} or is above
+     * the {@link RomanNumeralUtils#MAX_LIMIT}. It is also raised when the
      * input number entered in the query parameter is 0.
      *
      * @param ex
