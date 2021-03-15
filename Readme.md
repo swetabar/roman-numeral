@@ -71,19 +71,8 @@ but that might need a few additional plugins.
 * You can see the unit tests running on the IntelliJ terminal
   
 ## Engineering and testing methodology
-Spring-boot is used as the backend framework to build out the rest endpoint for 
-converting integers 
-to roman numerals. There are a few error handling scenarios that had to be 
-considered - such as 0 has no roman numeral equivalent.  
-[TDD](https://en.wikipedia.org/wiki/Test-driven_development) - Test Driven 
-Development was used to build out this application. The process for 
-development started out with a backbone of the spring boot application, then 
-writing out tests for RomanNumeralController and RomanNumeralService, 
-followed by writing out code to make sure the tests pass. The edge cases 
-were added soon after, and the error handling as well following the same 
-process as mentioned above. Javadoc comments were also added to provide a 
-better understanding of each class, method, or interface.
-
+Spring-boot is used as the backend framework to build out the rest endpoint for converting integers to roman numerals. A few error handling scenarios had to be considered - such as 0 has no roman numeral equivalent.
+I used [TDD](https://en.wikipedia.org/wiki/Test-driven_development) - Test Driven Development to build out this application. The development process started with the spring boot application's backbone, then writing out tests for RomanNumeralController and RomanNumeralService, followed by writing out code to make sure the tests pass. I added the edge cases soon after and the error handling following the same process as mentioned above. I also added Javadoc comments to provide a better understanding of each class, method, or interface.
 ## API response
 The detailed API response can be found in the swagger document. I've mentioned the successful scenario as well as a 
 few error scenarios.  
